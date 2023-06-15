@@ -95,34 +95,60 @@ document.addEventListener('DOMContentLoaded', () => {
     allImages.forEach(img => {
       img.addEventListener('click', imageClick);
     });
-    // const defImages = document.querySelectorAll('.def-img');
-    // const realImages = document.querySelectorAll('.real-img');
-    
   });
 });
 
-// function   age(id) {
-//   let image = document.getElementById(id);
-//   if (image.style.display === 'none') {
-//     image.style.display = 'block';
-//   }
-//   else {
-//     image.style.display = 'none';
-//   }
-// }
 
-function toggleDisplayClass(controlId){
+ async function toggleDisplayClass(controlId){
   let element = document.getElementById(controlId);
-  // let kfir = document.getElementById('kfir');
-  if (element.classList.contains('hidden')) {
-    element.classList.remove('hidden');
-    console.log('removed for ' + controlId);
+  // fadeout(element);
+  // element.classList.toggle('hidden');
+  // setInterval(hide(element), 100);
+  element.classList.toggle('hidden');
+//  if (element.classList.contains('hidden')) {
+//    await fadeIn(element);
+//  }
+//  else{
+//   await fadeout(element);
+//  } 
+ 
+}
+async function fadeIn(element){
+  let   intervalID = setInterval(function(){
+    show(element, intervalID);
+  }, 100);
+}
+ 
+async function fadeout(element){
+  let   intervalID = setInterval(function(){
+    hide(element, intervalID);
+  }, 100);
+}
+ 
+function hide(element, intervalID){
+    let opacity = Number(window.getComputedStyle(element).getPropertyValue("opacity"))
+      
+    if(opacity > 0){
+      opacity -=   0.5;
+      element.style.opacity = opacity;
+      // console.log(opacity + '  -  ' + element.id);
+    }
+    else{
+      clearInterval(intervalID);
+      console.log(intervalID)
+    }
+}
+
+function show(element, intervalID){
+  let opacity = Number(window.getComputedStyle(element).getPropertyValue("opacity"))
+    
+  if(opacity > 100){
+    opacity +=   0.5;
+    element.style.opacity = opacity;
+    // console.log(opacity + '  -  ' + element.id);
   }
   else{
-    element.classList.add('hidden');
-    console.log('added for ' + controlId);
-
+    clearInterval(intervalID);
+    console.log(intervalID)
   }
-  // element.classList.toggle('show');  
-  
 }

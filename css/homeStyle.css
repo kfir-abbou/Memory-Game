@@ -6,6 +6,7 @@ img{
   height: 450px;
   margin: 10px;
   border-radius: 5%;
+  opacity: 100%;
 }
 .real-img,
 .def-img
@@ -23,8 +24,7 @@ img:hover{
 
 .hidden{
   display: none;
-  background-color: red;
-  font-size: x-large;
+  
 }
 
 .gradient-background {
