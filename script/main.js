@@ -14,25 +14,35 @@ const images = [
   'image-6.jpeg',
 ];
 
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 window.addEventListener("load", () => {
 
   let tableCtrl = document.querySelector('#image-table');
   let innerHtml = `<tr>`;
-
-  for (let index = 0; index < images.length; index++) {
+  let imagesShuffeled = shuffleArray(images);
+  for (let index = 0; index < imagesShuffeled.length; index++) {
     innerHtml += `<td class="table-cell">
-        <img src="./images/${images[index]}" class="real-img hidden" id="img-${images[index]}"/>
-        <img src="./images/default/default.jpg" class="def-img" id="def-${images[index]}"/>
+        <img src="./images/${imagesShuffeled[index]}" class="real-img hidden" id="img-${imagesShuffeled[index]}"/>
+        <img src="./images/default/default.jpg" class="def-img" id="def-${imagesShuffeled[index]}"/>
     </td>`
     if ((index + 1) % 6 === 0) {
       innerHtml += `</tr><tr>`;
     }
   }
   innerHtml += '</tr>';
-  for (let index = 0; index < images.length; index++) {
+
+  imagesShuffeled = shuffleArray(images);
+  for (let index = 0; index < imagesShuffeled.length; index++) {
     innerHtml += `<td class="table-cell">
-        <img src="./images/${images[index]}" class="real-img hidden" id="img-${images[index]}_d"/>
-        <img src="./images/default/default.jpg" class="def-img" id="def-${images[index]}_d"/>
+        <img src="./images/${imagesShuffeled[index]}" class="real-img hidden" id="img-${imagesShuffeled[index]}_d"/>
+        <img src="./images/default/default.jpg" class="def-img" id="def-${imagesShuffeled[index]}_d"/>
 
     </td>`
     if ((index + 1) % 6 === 0) {
@@ -101,9 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
  async function toggleDisplayClass(controlId){
   let element = document.getElementById(controlId);
-  // fadeout(element);
-  // element.classList.toggle('hidden');
-  // setInterval(hide(element), 100);
   element.classList.toggle('hidden');
 //  if (element.classList.contains('hidden')) {
 //    await fadeIn(element);
