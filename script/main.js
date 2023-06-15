@@ -92,10 +92,13 @@ function addImageClickListener(images) {
     img.addEventListener('click', imageClick);
   });
 }
- 
+let clicksCounter = 0;
 
 function imageClick(element) {
   imageStack.push(element.srcElement.id);
+  let scoreElement = document.querySelector('#score-text');
+  clicksCounter++;
+  scoreElement.textContent = clicksCounter;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
