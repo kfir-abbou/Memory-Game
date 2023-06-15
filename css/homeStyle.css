@@ -1,0 +1,21 @@
+.table-cell {
+  width: 150px;
+}
+
+.real-img
+{
+  width: 350px;
+  height: 450px;
+  margin: 10px;
+  display: none;
+}
+
+.def-img{
+  width: 350px;
+  height: 450px;
+  margin: 10px;
+  display: block;
+  background-color: red;
+}
+
+ 
