@@ -112,12 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     const defImages = document.querySelectorAll('.def-img');
     const realImages = document.querySelectorAll('.real-img');
-    // defImages.forEach(i => {
-    //   i.style.display = 'block';
-    // });
-    // realImages.forEach(i => {
-    //   i.style.display = 'none';
-    // });
+    
   });
 });
 
