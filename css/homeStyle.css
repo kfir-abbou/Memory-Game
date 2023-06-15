@@ -1,19 +1,18 @@
 .table-cell {
   width: 150px;
 }
-
-.real-img
+img{
+  width: 350px;
+  height: 450px;
+  margin: 10px;
+  border-radius: 5%;
+}
+.real-img,
+.def-img
 {
-  width: 350px;
-  height: 450px;
-  margin: 10px;
+   
 }
 
-.def-img{
-  width: 350px;
-  height: 450px;
-  margin: 10px;
-}
 img:hover{
   cursor: pointer;
 }
@@ -26,6 +25,10 @@ img:hover{
   display: none;
   background-color: red;
   font-size: x-large;
+}
+
+.gradient-background {
+  background: linear-gradient(to right, #65a27c, #6ab4e3);
 }
 
  

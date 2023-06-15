@@ -4,7 +4,7 @@ import ImagesCompareStack from "./imagesCompareStack.js";
 const imageStack = new ImagesCompareStack(2);
 let isStackFull = false;
 const buildEvent = new Event("buildDone");
-const imagesDirectory = '../html/images';
+// const imagesDirectory = '../html/images';
 const images = [
   'image-1.jpeg',
   'image-2.jpeg',
@@ -48,7 +48,6 @@ window.addEventListener("load", () => {
 document.addEventListener('stackUpdate', (event) => {
   // console.log(event);
   const { id, currSize } = event.detail;
-  toggleDisplayClass('kfir');
   toggleDisplayClass(id);
   toggleDisplayClass(id.replace('def', 'img'));
   isStackFull = imageStack.isFull();
@@ -67,11 +66,6 @@ document.addEventListener('stackUpdate', (event) => {
     }
     else {
       setTimeout(() => {
-
-        // toggleImage(a);
-        // toggleImage(b);
-        // toggleImage(a.replace('def', 'img'));
-        // toggleImage(b.replace('def', 'img'));
         toggleDisplayClass(a);
         toggleDisplayClass(b);
         toggleDisplayClass(a.replace('def', 'img'));
@@ -81,11 +75,6 @@ document.addEventListener('stackUpdate', (event) => {
       }, 1500);
     }
   }
-  // else{
-  //   let imageName = img.detail;
-  //   toggleImage(imageName);
-  //   toggleImage(imageName.replace('def', 'img'));
-  // }
 });
 
 function addImageClickListener(images) {
@@ -93,14 +82,10 @@ function addImageClickListener(images) {
     img.addEventListener('click', imageClick);
   });
 }
-
-// function disableImageClick(event) {
-//   event.preventDefault();
-//   event.stopPropagation();  
-// }
+ 
 
 function imageClick(element) {
-  let pushed = imageStack.push(element.srcElement.id);
+  imageStack.push(element.srcElement.id);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -110,25 +95,25 @@ document.addEventListener('DOMContentLoaded', () => {
     allImages.forEach(img => {
       img.addEventListener('click', imageClick);
     });
-    const defImages = document.querySelectorAll('.def-img');
-    const realImages = document.querySelectorAll('.real-img');
+    // const defImages = document.querySelectorAll('.def-img');
+    // const realImages = document.querySelectorAll('.real-img');
     
   });
 });
 
-function toggleImage(id) {
-  let image = document.getElementById(id);
-  if (image.style.display === 'none') {
-    image.style.display = 'block';
-  }
-  else {
-    image.style.display = 'none';
-  }
-}
+// function   age(id) {
+//   let image = document.getElementById(id);
+//   if (image.style.display === 'none') {
+//     image.style.display = 'block';
+//   }
+//   else {
+//     image.style.display = 'none';
+//   }
+// }
 
 function toggleDisplayClass(controlId){
   let element = document.getElementById(controlId);
-  let kfir = document.getElementById('kfir');
+  // let kfir = document.getElementById('kfir');
   if (element.classList.contains('hidden')) {
     element.classList.remove('hidden');
     console.log('removed for ' + controlId);
