@@ -7,15 +7,26 @@
   width: 350px;
   height: 450px;
   margin: 10px;
-  display: none;
 }
 
 .def-img{
   width: 350px;
   height: 450px;
   margin: 10px;
-  display: block;
   background-color: red;
+}
+img:hover{
+  cursor: pointer;
+}
+
+.show{
+  display: block;
+}
+
+.hidden{
+  display: none;
+  background-color: red;
+  font-size: x-large;
 }
 
  
